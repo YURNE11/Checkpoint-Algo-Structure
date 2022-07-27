@@ -1,0 +1,23 @@
+ALGORITHM Chevauchement
+VAR
+    jeu1 : ARRAY_OF INTEGER[4];
+    jeu2 : ARRAY_OF INTEGER[5];
+    jeu3 : ARRAY_OF INTEGER[9];
+
+    i, j : INTEGER;
+BEGIN
+    jeu1 := {3, 1, 7, 9};
+    jeu2 := {2, 4, 1, 9, 3};
+    jeu3 := {jeu1 + jeu2};
+    j := 1;
+
+    FOR i  FROM 1 TO jeu1.length DO
+        jeu3[i] := jeu1[i];
+
+        FOR i FROM jeu1.length + 1 TO jeu3.length DO
+            jeu3[i] = jeu2[i];
+            j := j + 1;
+        END_FOR
+
+    END_FOR
+END
